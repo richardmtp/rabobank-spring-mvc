@@ -1,0 +1,49 @@
+<div class="container">
+  	<h2>Transactions</h2>  
+	<div class="row">
+		<button class="btn btn-primary" type="button" ngf-select="uploadHandler($files)" name="file" ng-model="media" ngf-pattern="'.xml,.csv'" ngf-accept="'.xml,.csv'" ngf-multiple="true"> Upload </button>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Transaction Reference</th>
+					<th>Account Number</th>
+					 <th>Description</th>
+					 <th>Start Balance</th>
+					 <th>Mutation</th>
+					 <th>End Balance</th>
+				 </tr>
+			 </thead>
+			 <tbody>
+				<tr ng-repeat="statemet in statements">
+					 <td> {{statemet.reference}} </td>
+					 <td> {{statemet.accountNumber}} </td>
+					 <td> {{statemet.description}} </td>
+					 <td> {{statemet.startBalance}} </td>
+					 <td> {{statemet.mutation}} </td>
+					 <td> {{statemet.endBalance}} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="row">
+		<h2>Issues</h2>  
+		<input type='search' ng-model='search' ng-keyup="$event.keyCode == 13 ? onSearch(search) : null">
+		<button class="btn btn-primary" type="button" ng-click="onSearch(search)"> Search </button>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Account Number</th>
+					 <th>Issue count</th>
+				 </tr>
+			 </thead>
+			 <tbody>
+				<tr ng-repeat="issue in issues">
+					 <td> {{issue.accountNumber}} </td>
+					 <td> {{issue.count}} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>
